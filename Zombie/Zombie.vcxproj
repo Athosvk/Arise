@@ -43,15 +43,15 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(SolutionDir)dependencies\include;$(SolutionDir);$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)dependencies\lib\Debug;$(SolutionDir)Debug/;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)Artifact\dependencies\include;$(SolutionDir)Artifact\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)Artifact/dependencies\lib\Debug;$(SolutionDir)Debug/;$(LibraryPath)</LibraryPath>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(SolutionDir)dependencies/include/;$(SolutionDir);$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)dependencies\lib\Release;$(SolutionDir)Release/;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)Artifact\dependencies\include;$(SolutionDir)Artifact\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)Artifact/dependencies\lib\Release;$(SolutionDir)Release/;$(LibraryPath)</LibraryPath>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>

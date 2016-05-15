@@ -2,6 +2,7 @@
 #include <Artifact/Random.h>
 #include <Artifact/Rendering/SpriteRenderer.h>
 #include <Artifact/Audio/AudioSource.h>
+#include <Artifact/Transform.h>
 
 #include "MainWorld.h"
 #include "Player/PlayerInputSystem.h"
