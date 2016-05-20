@@ -9,7 +9,7 @@ namespace Artifact
 class StartScreen : public Artifact::World
 {
 private:
-    Artifact::AudioSource* m_BackgroundMusic;
+    Artifact::ComponentHandle<Artifact::AudioSource> m_BackgroundMusic = Artifact::ComponentHandle<Artifact::AudioSource>::NullHandle;
     Artifact::GameObject m_ControlsPopup;
 
 public:

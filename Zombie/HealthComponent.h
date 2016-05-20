@@ -9,7 +9,7 @@ private:
 public:
     
     unsigned MaxHealth;
-    Artifact::Delegate<void(HealthComponent* a_HealthComponent)> OnDeath;
+    Artifact::Delegate<void(Artifact::ComponentHandle<HealthComponent> a_HealthComponent)> OnDeath;
     Artifact::Delegate<void()> OnHit;
 
 public:

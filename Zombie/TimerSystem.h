@@ -15,6 +15,6 @@ public:
     virtual void registerListeners() override;
 private:
     void update(const Artifact::UpdateMessage* a_UpdateMessage);
-    void updateTimePassed(const Artifact::UpdateMessage* a_UpdateMessage, TimerComponent* a_Timer);
+    void updateTimePassed(const Artifact::UpdateMessage* a_UpdateMessage, Artifact::ComponentHandle<TimerComponent> a_Timer);
 };
 

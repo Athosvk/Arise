@@ -37,7 +37,7 @@ MainWorld::MainWorld(Artifact::GameTime& a_GameTime, Artifact::Game* a_CurrentGa
     addSystem<SpawnerSystem>();
 
     auto player = m_EntitySystem.createEntity<Player>();
-    player.getComponent<HealthComponent>()->OnDeath += [this](const HealthComponent* a_HealthComponent)
+    player.getComponent<HealthComponent>()->OnDeath += [this](const Artifact::ComponentHandle<HealthComponent> a_HealthComponent)
     { 
         auto score = a_HealthComponent->getComponent<PlayerScoreComponent>()->CurrentScore;
         loadGameoverScreen(score); 

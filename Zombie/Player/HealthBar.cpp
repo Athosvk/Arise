@@ -13,9 +13,9 @@ const float HealthBar::Height = 0.3f;
 const glm::vec2 HealthBar::BackgroundOffset = glm::vec2(-0.05f, -0.05f);
 
 HealthBar::HealthBar(Artifact::EntitySystem& a_EntitySystem, glm::vec2 a_Position)
-    : m_Position(a_Position)
+    : m_Position(a_Position),
+	m_HealthRenderer(a_EntitySystem.createEntity().addComponent<Artifact::SpriteRenderer>())
 {
-    m_HealthRenderer = a_EntitySystem.createEntity().addComponent<Artifact::SpriteRenderer>();
     initialiseHealthbar();
 
     auto backgroundRenderer = a_EntitySystem.createEntity().addComponent<Artifact::SpriteRenderer>();
@@ -28,7 +28,7 @@ HealthBar::HealthBar(Artifact::EntitySystem& a_EntitySystem, glm::vec2 a_Positio
     backgroundRenderer->Pivot = glm::vec2(0.0f, 0.0f);
 }
 
-void HealthBar::update(HealthComponent* a_Health)
+void HealthBar::update(Artifact::ComponentHandle<HealthComponent> a_Health)
 {
     m_HealthRenderer->Width = (a_Health->getCurrentHealth() /
         static_cast<float>(a_Health->MaxHealth)) * MaxWidth;

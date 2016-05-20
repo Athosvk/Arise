@@ -3,9 +3,9 @@
 #include "AttackComponent.h"
 
 AttackComponent::AttackComponent(Artifact::GameObject a_GameObject)
-    : Component(a_GameObject)
+    : Component(a_GameObject),
+	m_DelayTimer(addComponent<TimerComponent>())
 {
-    m_DelayTimer = addComponent<TimerComponent>();
 }
 
 void AttackComponent::setAttackInterval(float a_Interval)

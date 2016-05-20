@@ -41,7 +41,7 @@ void BulletSystem::onCollisionEnter(Artifact::BoxCollider2D* a_Collider, Artifac
         auto bullet = a_Collider->getComponent<BulletComponent>();
         if(Artifact::EnumUtility::hasFlag(bullet->TargetTag, collidingTag->Type))
         {
-            HealthComponent* targetHealth = a_Other->getComponent<HealthComponent>();
+            Artifact::ComponentHandle<HealthComponent> targetHealth = a_Other->getComponent<HealthComponent>();
             if(targetHealth != nullptr)
             {
                 targetHealth->dealDamage(bullet->Damage);

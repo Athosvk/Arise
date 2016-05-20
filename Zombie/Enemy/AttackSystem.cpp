@@ -30,7 +30,7 @@ void AttackSystem::update()
     }
 }
 
-PlayerComponent* AttackSystem::getCurrentPlayer() const
+Artifact::ComponentHandle<PlayerComponent> AttackSystem::getCurrentPlayer() const
 {
     return m_EntitySystem.getComponentsOfType<PlayerComponent>()[0];
 }

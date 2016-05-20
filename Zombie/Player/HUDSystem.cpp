@@ -12,9 +12,9 @@
 
 HUDSystem::HUDSystem(Artifact::EntitySystem& a_EntitySystem, Artifact::MessagingSystem& a_MessagingSystem)
     : System(a_EntitySystem, a_MessagingSystem),
-    m_HealthBar(m_EntitySystem, glm::vec2(3.0f, 3.4f))
+    m_HealthBar(m_EntitySystem, glm::vec2(3.0f, 3.4f)),
+	m_ScoreDisplay(m_EntitySystem.createEntity().addComponent<Artifact::TextComponent>())
 {
-    m_ScoreDisplay = m_EntitySystem.createEntity().addComponent<Artifact::TextComponent>();
     m_ScoreDisplay->Text = "Score: ";
     m_ScoreDisplay->Font = Artifact::ResourceManager::getFont("Fonts/BasicFont.ttf");
     m_ScoreDisplay->getComponent<Artifact::Transform>()->setPosition(glm::vec2(-4.9f, 3.4f));
@@ -38,7 +38,7 @@ void HUDSystem::updateHUDComponents()
         getComponent<PlayerScoreComponent>()->CurrentScore);
 }
 
-PlayerComponent* HUDSystem::getCurrentPlayer() const
+Artifact::ComponentHandle<PlayerComponent> HUDSystem::getCurrentPlayer() const
 {
     return m_EntitySystem.getComponentsOfType<PlayerComponent>()[0];
 }

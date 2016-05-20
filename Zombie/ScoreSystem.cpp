@@ -20,15 +20,15 @@ void ScoreSystem::registerListeners()
     });
 }
 
-void ScoreSystem::onScoreComponentAdd(ScoreComponent* a_ScoreComponent) const
+void ScoreSystem::onScoreComponentAdd(Artifact::ComponentHandle<ScoreComponent> a_ScoreComponent) const
 {
-    a_ScoreComponent->getComponent<HealthComponent>()->OnDeath += [this](HealthComponent* a_Health)
+    a_ScoreComponent->getComponent<HealthComponent>()->OnDeath += [this](Artifact::ComponentHandle<HealthComponent> a_Health)
     {
         onEnemyDeath(a_Health);
     };
 }
 
-void ScoreSystem::onEnemyDeath(HealthComponent* a_EnemyHealth) const
+void ScoreSystem::onEnemyDeath(Artifact::ComponentHandle<HealthComponent> a_EnemyHealth) const
 {
     auto awardedScore = a_EnemyHealth->getComponent<ScoreComponent>()->Amount;
     m_EntitySystem.getComponentsOfType<PlayerScoreComponent>()[0]->CurrentScore += awardedScore;

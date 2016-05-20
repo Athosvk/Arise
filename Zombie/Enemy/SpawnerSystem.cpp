@@ -32,7 +32,7 @@ void SpawnerSystem::update(double a_DeltaTime)
     }
 }
 
-void SpawnerSystem::triggerSpawn(std::vector<SpawnerComponent*>& a_Spawners)
+void SpawnerSystem::triggerSpawn(std::vector<Artifact::ComponentHandle<SpawnerComponent>>& a_Spawners)
 {
     auto spawnPosition = a_Spawners[Artifact::Random::range(0, a_Spawners.size() - 1)]->getSpawnPosition();
     auto spawnedEnemy = m_EntitySystem.createEntity<Enemy>();
