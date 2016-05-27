@@ -16,5 +16,5 @@ public:
 private:
     void handleInput();
     void refreshSelectedOption();
-    unsigned getOptionCount();
+    unsigned getOptionCount() const;
 };
