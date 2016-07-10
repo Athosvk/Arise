@@ -11,6 +11,6 @@ public:
     virtual void registerListeners() override;
 private:
     void update();
-    PlayerComponent* getCurrentPlayer() const;
+    Artifact::ComponentHandle<PlayerComponent> getCurrentPlayer() const;
 };
 

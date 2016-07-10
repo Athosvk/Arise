@@ -13,7 +13,7 @@ public:
     Artifact::KeyCode MoveLeftKey;
     Artifact::KeyCode MoveRightKey;
     Artifact::KeyCode FireKey;
-    WeaponComponent* Weapon;
+	Artifact::ComponentHandle<WeaponComponent> Weapon = Artifact::ComponentHandle<WeaponComponent>::NullHandle;
 
 public:
     PlayerInputComponent(Artifact::GameObject a_GameObject);

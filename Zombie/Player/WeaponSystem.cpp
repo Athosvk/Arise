@@ -7,12 +7,12 @@
 #include "WeaponComponent.h"
 #include "../BulletComponent.h"
 
-FireWeaponMessage::FireWeaponMessage(WeaponComponent* a_WeaponComponent)
+FireWeaponMessage::FireWeaponMessage(Artifact::ComponentHandle<WeaponComponent> a_WeaponComponent)
     : m_WeaponComponent(a_WeaponComponent)
 { 
 }
 
-WeaponComponent* FireWeaponMessage::getWeapon() const
+Artifact::ComponentHandle<WeaponComponent> FireWeaponMessage::getWeapon() const
 {
     return m_WeaponComponent;
 }
@@ -40,14 +40,14 @@ void WeaponSystem::tryFire(const FireWeaponMessage* a_FireMessage)
     }
 }
 
-void WeaponSystem::fire(WeaponComponent* a_Weapon)
+void WeaponSystem::fire(Artifact::ComponentHandle<WeaponComponent> a_Weapon)
 {
     createBullet(a_Weapon->getComponent<Artifact::Transform>());
     a_Weapon->getComponent<Artifact::AudioSource>()->play();
     a_Weapon->FireDelayTimer->start();
 }
 
-void WeaponSystem::createBullet(const Artifact::Transform* a_MuzzleTransform)
+void WeaponSystem::createBullet(const Artifact::ComponentHandle<Artifact::Transform> a_MuzzleTransform)
 {
     auto offset = Artifact::MathHelper::rotate(glm::vec2(0.4f, -0.25f), 
         a_MuzzleTransform->getRotation(), glm::vec2(0.0f));

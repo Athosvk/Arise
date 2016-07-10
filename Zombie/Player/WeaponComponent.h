@@ -7,8 +7,8 @@
 class WeaponComponent : public Artifact::Component
 {
 public:
-    Artifact::Transform* MuzzleTransform;
-    TimerComponent* FireDelayTimer;
+	Artifact::ComponentHandle<Artifact::Transform> MuzzleTransform = Artifact::ComponentHandle<Artifact::Transform>::NullHandle;
+    Artifact::ComponentHandle<TimerComponent> FireDelayTimer;
 
 public:
     WeaponComponent(Artifact::GameObject a_GameObject);

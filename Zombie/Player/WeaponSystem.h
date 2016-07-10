@@ -9,12 +9,12 @@ class WeaponComponent;
 
 class FireWeaponMessage : public Artifact::Message
 {
-    WeaponComponent* m_WeaponComponent;
+    Artifact::ComponentHandle<WeaponComponent> m_WeaponComponent;
 
 public:
-    FireWeaponMessage(WeaponComponent* a_WeaponComponent);
+    FireWeaponMessage(Artifact::ComponentHandle<WeaponComponent> a_WeaponComponent);
 
-    WeaponComponent* getWeapon() const;
+	Artifact::ComponentHandle<WeaponComponent> getWeapon() const;
 };
 
 class WeaponSystem : public Artifact::System
@@ -27,7 +27,7 @@ public:
     virtual void registerListeners() override;
 private:
     void tryFire(const FireWeaponMessage* a_FireMessage);
-    void fire(WeaponComponent* a_Weapon);
-    void createBullet(const Artifact::Transform* a_MuzzleTransform);
+    void fire(Artifact::ComponentHandle<WeaponComponent> a_Weapon);
+    void createBullet(const Artifact::ComponentHandle<Artifact::Transform> a_MuzzleTransform);
 };
 

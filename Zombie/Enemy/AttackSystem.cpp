@@ -21,7 +21,7 @@ void AttackSystem::update()
 {
     for(auto attackComponent : m_EntitySystem.getComponentsOfType<AttackComponent>())
     {
-        if(attackComponent->canAttack())
+        if(attackComponent->canAttack() && attackComponent->isEnabled())
         {
             auto playerHealth = getCurrentPlayer()->getComponent<HealthComponent>();
             playerHealth->dealDamage(attackComponent->Damage);
@@ -30,7 +30,7 @@ void AttackSystem::update()
     }
 }
 
-PlayerComponent* AttackSystem::getCurrentPlayer() const
+Artifact::ComponentHandle<PlayerComponent> AttackSystem::getCurrentPlayer() const
 {
     return m_EntitySystem.getComponentsOfType<PlayerComponent>()[0];
 }

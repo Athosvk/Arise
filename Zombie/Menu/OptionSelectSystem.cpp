@@ -65,7 +65,7 @@ void OptionSelectSystem::refreshSelectedOption()
     }
 }
 
-unsigned OptionSelectSystem::getOptionCount()
+unsigned OptionSelectSystem::getOptionCount() const
 {
     return m_EntitySystem.getComponentsOfType<OptionComponent>().size();
 }
