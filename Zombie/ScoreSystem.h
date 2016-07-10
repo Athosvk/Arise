@@ -12,6 +12,6 @@ public:
     virtual void registerListeners() override;
 private:
     void onScoreComponentAdd(Artifact::ComponentHandle<ScoreComponent> a_ScoreComponent) const;
-    void onEnemyDeath(Artifact::ComponentHandle<HealthComponent> a_EnemyHealth) const;
+    void onEnemyDeath(Artifact::GameObject a_Enemy) const;
 };
 

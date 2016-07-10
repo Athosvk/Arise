@@ -22,14 +22,14 @@ void ScoreSystem::registerListeners()
 
 void ScoreSystem::onScoreComponentAdd(Artifact::ComponentHandle<ScoreComponent> a_ScoreComponent) const
 {
-    a_ScoreComponent->getComponent<HealthComponent>()->OnDeath += [this](Artifact::ComponentHandle<HealthComponent> a_Health)
+    a_ScoreComponent->getComponent<HealthComponent>()->OnDeath += [this](Artifact::GameObject a_GameObject)
     {
-        onEnemyDeath(a_Health);
+        onEnemyDeath(a_GameObject);
     };
 }
 
-void ScoreSystem::onEnemyDeath(Artifact::ComponentHandle<HealthComponent> a_EnemyHealth) const
+void ScoreSystem::onEnemyDeath(Artifact::GameObject a_Enemy) const
 {
-    auto awardedScore = a_EnemyHealth->getComponent<ScoreComponent>()->Amount;
+    auto awardedScore = a_Enemy.getComponent<ScoreComponent>()->Amount;
     m_EntitySystem.getComponentsOfType<PlayerScoreComponent>()[0]->CurrentScore += awardedScore;
 }

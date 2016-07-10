@@ -33,7 +33,8 @@ void BulletSystem::registerCollisionListener(const Artifact::GameObject a_Target
     }, a_Target);
 }
 
-void BulletSystem::onCollisionEnter(Artifact::BoxCollider2D* a_Collider, Artifact::BoxCollider2D* a_Other)
+void BulletSystem::onCollisionEnter(Artifact::ComponentHandle<Artifact::BoxCollider2D> a_Collider, 
+	Artifact::ComponentHandle<Artifact::BoxCollider2D> a_Other)
 {
     auto collidingTag = a_Other->getComponent<TagComponent>();
     if(collidingTag != nullptr)

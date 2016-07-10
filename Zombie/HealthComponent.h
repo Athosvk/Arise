@@ -8,7 +8,7 @@ private:
     unsigned m_CurrentHealth = 0;
 public:
     unsigned MaxHealth = 0;
-    Artifact::Delegate<void(Artifact::ComponentHandle<HealthComponent> a_HealthComponent)> OnDeath;
+    Artifact::Delegate<void(Artifact::GameObject a_GameObject)> OnDeath;
     Artifact::Delegate<void()> OnHit;
 
 public:

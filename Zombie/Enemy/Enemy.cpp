@@ -25,9 +25,9 @@ Enemy::Enemy(unsigned a_ID, Artifact::EntitySystem& a_EntitySystem)
     const auto MaxHealth = 5u;
     auto health = addComponent<HealthComponent>();
     health->initialise(MaxHealth);
-    health->OnDeath += [](Artifact::ComponentHandle<HealthComponent> a_Health) 
+    health->OnDeath += [](Artifact::GameObject a_Enemy) 
 	{
-		a_Health->getGameObject().deactivate();
+		a_Enemy.deactivate();
 	};
 
     auto tag = addComponent<TagComponent>();
