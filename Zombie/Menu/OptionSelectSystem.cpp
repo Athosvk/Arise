@@ -1,4 +1,5 @@
 #include <string>
+#include <stdexcept>
 
 #include <Artifact/Input/Keyboard.h>
 #include <Artifact/Input/InputSystem.h>
