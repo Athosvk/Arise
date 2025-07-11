@@ -2,7 +2,6 @@
 Your typical shoot up some zombies game! It's incredibly basic: they'll spawn, you have to kill them. Best score wins.
 Built using [Artifact](https://github.com/Athosvk/Artifact).
 
-## Running it 
 ## Running it
 - Build using Visual Studio
 - Copy the dlls over from Artifact's dependencies folder
@@ -14,8 +13,8 @@ Both players have their own set of controls:
 - Spacebar to shoot
 
 
-<p align="center">
-   ![Gampelay](contents/menu.png)
-   ![Gampelay](contents/game.png)
-   ![Gampelay](contents/game_over.png)
-</p>
+![Gampelay](contents/menu.png)
+
+![Gampelay](contents/game.png)
+
+![Gampelay](contents/game_over.png)
