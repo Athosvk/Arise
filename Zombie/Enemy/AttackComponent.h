@@ -6,7 +6,7 @@
 class AttackComponent : public Artifact::Component
 {
 private:
-    TimerComponent* m_DelayTimer;
+    Artifact::ComponentHandle<TimerComponent> m_DelayTimer;
 public:
     int Damage = 1;
 

@@ -19,7 +19,7 @@ void HealthComponent::dealDamage(unsigned a_Amount)
     OnHit();
     if(m_CurrentHealth == 0)
     {
-        OnDeath(this);
+        OnDeath(getGameObject());
     }
 }
 

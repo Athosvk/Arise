@@ -1,4 +1,5 @@
 #include <string>
+#include <stdexcept>
 
 #include <Artifact/Input/Keyboard.h>
 #include <Artifact/Input/InputSystem.h>
@@ -65,7 +66,7 @@ void OptionSelectSystem::refreshSelectedOption()
     }
 }
 
-unsigned OptionSelectSystem::getOptionCount()
+unsigned OptionSelectSystem::getOptionCount() const
 {
     return m_EntitySystem.getComponentsOfType<OptionComponent>().size();
 }

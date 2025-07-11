@@ -13,7 +13,7 @@ class HUDSystem : public Artifact::System
 {
 private:
     HealthBar m_HealthBar;
-    Artifact::TextComponent* m_ScoreDisplay;
+    Artifact::ComponentHandle<Artifact::TextComponent> m_ScoreDisplay;
 
 public:
     HUDSystem(Artifact::EntitySystem& a_EntitySystem, Artifact::MessagingSystem& a_MessagingSystem);
@@ -21,5 +21,5 @@ public:
     virtual void registerListeners() override;
 private:
     void updateHUDComponents();
-    PlayerComponent* getCurrentPlayer() const;
+	Artifact::ComponentHandle<PlayerComponent> getCurrentPlayer() const;
 };

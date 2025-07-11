@@ -33,7 +33,8 @@ void BulletSystem::registerCollisionListener(const Artifact::GameObject a_Target
     }, a_Target);
 }
 
-void BulletSystem::onCollisionEnter(Artifact::BoxCollider2D* a_Collider, Artifact::BoxCollider2D* a_Other)
+void BulletSystem::onCollisionEnter(Artifact::ComponentHandle<Artifact::BoxCollider2D> a_Collider, 
+	Artifact::ComponentHandle<Artifact::BoxCollider2D> a_Other)
 {
     auto collidingTag = a_Other->getComponent<TagComponent>();
     if(collidingTag != nullptr)
@@ -41,7 +42,7 @@ void BulletSystem::onCollisionEnter(Artifact::BoxCollider2D* a_Collider, Artifac
         auto bullet = a_Collider->getComponent<BulletComponent>();
         if(Artifact::EnumUtility::hasFlag(bullet->TargetTag, collidingTag->Type))
         {
-            HealthComponent* targetHealth = a_Other->getComponent<HealthComponent>();
+            Artifact::ComponentHandle<HealthComponent> targetHealth = a_Other->getComponent<HealthComponent>();
             if(targetHealth != nullptr)
             {
                 targetHealth->dealDamage(bullet->Damage);

@@ -28,7 +28,7 @@ void TimerSystem::update(const Artifact::UpdateMessage* a_UpdateMessage)
     }
 }
 
-void TimerSystem::updateTimePassed(const Artifact::UpdateMessage* a_UpdateMessage, TimerComponent* a_TimerComponent)
+void TimerSystem::updateTimePassed(const Artifact::UpdateMessage* a_UpdateMessage, Artifact::ComponentHandle<TimerComponent> a_TimerComponent)
 {
     a_TimerComponent->TimePassed += a_UpdateMessage->getGameTime().getDeltaTime();
     if(a_TimerComponent->TimePassed >= a_TimerComponent->Duration)

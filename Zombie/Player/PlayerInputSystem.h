@@ -12,7 +12,7 @@ public:
 
 private:
     void handleInput();
-    void updatePlayerMovement(PlayerInputComponent* a_Player);
-    void updateFireState(PlayerInputComponent* a_Player);
+    void updatePlayerMovement(Artifact::ComponentHandle<PlayerInputComponent> a_Player);
+    void updateFireState(Artifact::ComponentHandle<PlayerInputComponent> a_Player);
 };
 

@@ -16,5 +16,5 @@ public:
     virtual void registerListeners() override;
 private:
     void update(double a_DeltaTime);
-    void triggerSpawn(std::vector<SpawnerComponent*>& a_Spawners);
+    void triggerSpawn(std::vector<Artifact::ComponentHandle<SpawnerComponent>>& a_Spawners);
 };

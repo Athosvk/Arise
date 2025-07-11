@@ -6,7 +6,7 @@ class OptionComponent;
 class OptionSelectSystem : public Artifact::System
 {
 private:
-    OptionComponent* m_Selected;
+    Artifact::ComponentHandle<OptionComponent> m_Selected = Artifact::ComponentHandle<OptionComponent>::NullHandle;
     unsigned m_SelectedIndex = -1;
 
 public:
@@ -16,5 +16,5 @@ public:
 private:
     void handleInput();
     void refreshSelectedOption();
-    unsigned getOptionCount();
+    unsigned getOptionCount() const;
 };
